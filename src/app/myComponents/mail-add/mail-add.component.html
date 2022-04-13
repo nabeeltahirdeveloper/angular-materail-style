@@ -1,0 +1,45 @@
+<div *ngIf="data==null; else elseBlock">
+
+
+    <h1 mat-dialog-title>Add your Mail </h1>
+    <div mat-dialog-content>
+        <p>Enter Mail Title</p>
+        <mat-form-field appearance="fill">
+            <mat-label>Mail Title</mat-label>
+            <input matInput [(ngModel)]="addMailData.title">
+        </mat-form-field>
+    </div>
+    <div mat-dialog-content>
+        <p>Enter Mail Body</p>
+        <mat-form-field appearance="fill">
+            <mat-label>Mail Body</mat-label>
+            <input matInput [(ngModel)]="addMailData.content">
+        </mat-form-field>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-button mat-dialog-close>No Thanks</button>
+        <button mat-button [mat-dialog-close]="addMailData" cdkFocusInitial>Ok</button>
+    </div>
+</div>
+<ng-template #elseBlock>
+
+    <h1 mat-dialog-title>Update your Mail </h1>
+    <div mat-dialog-content>
+        <p>Update Mail Title</p>
+        <mat-form-field appearance="fill">
+            <mat-label>Mail Title</mat-label>
+            <input matInput [(ngModel)]="data.title">
+        </mat-form-field>
+    </div>
+    <div mat-dialog-content>
+        <p>Update Mail Body</p>
+        <mat-form-field appearance="fill">
+            <mat-label>Mail Body</mat-label>
+            <input matInput [(ngModel)]="data.content">
+        </mat-form-field>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-button mat-dialog-close>No Thanks</button>
+        <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+    </div>
+</ng-template>

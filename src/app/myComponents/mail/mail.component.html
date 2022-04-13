@@ -1,0 +1,26 @@
+<div style="text-align: right;">
+    <span (click)="openDialog()" class="material-icons">add_circle</span>
+
+</div>
+
+<div *ngIf="allMails.length; else elseBlock">
+    <div *ngFor="let mail of allMails; index as i;">
+
+
+        <mat-card>
+            <mat-card-title>{{mail.title}}</mat-card-title>
+            <mat-card-subtitle>{{mail.content}}</mat-card-subtitle>
+            <mat-card-actions align="end">
+                <button mat-button (click)="editMail(mail, i)">Edit</button>
+                <button mat-button (click)="deleteMail(i)">Delete</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>
+<ng-template #elseBlock>
+
+    <h1 style="margin: 10% ;">No Mail Found</h1>
+    <p style="margin:10%">
+        Please Click on add button and add your mails to see them here
+    </p>
+</ng-template>
