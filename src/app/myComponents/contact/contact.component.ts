@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { mailData } from 'src/app/cusomTypes/mailData';
-import { MailAddComponent } from '../mail-add/mail-add.component';
+import { contactData } from 'src/app/cusomTypes/contactData';
+import { ContactAddComponent } from '../contact-add/contact-add.component';
 
 @Component({
   selector: 'app-contact',
@@ -9,35 +9,49 @@ import { MailAddComponent } from '../mail-add/mail-add.component';
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent implements OnInit {
-  allMails: mailData[] = [];
-  constructor(public dialog: MatDialog) { }
+  allContacts: contactData[] = [];
+  localItem:any;
+  constructor(public dialog: MatDialog) {
+    this.localItem=localStorage.getItem('contact')
+    if (this.localItem==null){
+      this.allContacts=[]
+    }
+    else{
+      this.allContacts=JSON.parse(this.localItem)
+    }
+   }
 
   ngOnInit(): void {
   }
 
 
-  editMail(mail:any, index:number){
-    const dialogRef = this.dialog.open(MailAddComponent, {
+  editContact(contact:any, index:number){
+    const dialogRef = this.dialog.open(ContactAddComponent, {
       data: {
-        title: mail.title,
-        content: mail.content
+        name: contact.name,
+        number: contact.number
       }
     }
 
     )
     dialogRef.afterClosed().subscribe(result => {
-      this.allMails[index] = result;
+      this.allContacts[index] = result;
+      localStorage.setItem('contact', JSON.stringify(this.allContacts))
     })
   } 
 
 
-  deleteMail( index:number){
-    this.allMails.splice(index, 1);
+  deleteContact( index:number){
+    this.allContacts.splice(index, 1);
+    localStorage.setItem('contact', JSON.stringify(this.allContacts))
+
   }
   openDialog(){
-    const dialogRef = this.dialog.open(MailAddComponent)
+    const dialogRef = this.dialog.open(ContactAddComponent)
     dialogRef.afterClosed().subscribe(result => {
-      this.allMails.push(result);
+      console.log(result);
+      this.allContacts.push(result);
+      localStorage.setItem('contact', JSON.stringify(this.allContacts))
     })
   }
 

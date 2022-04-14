@@ -1,0 +1,52 @@
+<div *ngIf="data==null; else elseBlock">
+
+
+    <h1 mat-dialog-title>Add your Task </h1>
+    <div mat-dialog-content>
+        <p>Enter Task</p>
+        <mat-form-field appearance="fill">
+            <mat-label>Task</mat-label>
+            <input matInput [(ngModel)]="addCalanderData.task">
+        </mat-form-field>
+    </div>
+    <div mat-dialog-content>
+        <p>Enter Date</p>
+        <mat-form-field appearance="fill">
+            <mat-label>Enter date</mat-label>
+            <input matInput [matDatepicker]="dp" [formControl]="date" [(ngModel)]="addCalanderData.date">
+            <mat-hint>MMMM DD, YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+            <mat-datepicker #dp></mat-datepicker>
+          </mat-form-field>
+          
+    </div>
+    <div mat-dialog-actions>
+        <button mat-button (click)="onNoClick()">No Thanks</button>
+        <button mat-button [mat-dialog-close]="addCalanderData" cdkFocusInitial>Ok</button>
+    </div>
+</div>
+<ng-template #elseBlock>
+
+    <h1 mat-dialog-title>Update your Task </h1>
+    <div mat-dialog-content>
+        <p>Update Task</p>
+        <mat-form-field appearance="fill">
+            <mat-label>Task</mat-label>
+            <input matInput [(ngModel)]="data.task">
+        </mat-form-field>
+    </div>
+    <div mat-dialog-content>
+        <p>Update Date</p>
+        <mat-form-field appearance="fill">
+            <mat-label>Enter Date</mat-label>
+            <input matInput [matDatepicker]="dp" [formControl]="date" [(ngModel)]="data.date">
+            <mat-hint>MMMM DD, YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+            <mat-datepicker #dp></mat-datepicker>
+          </mat-form-field>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-button (click)="onNoClick()">No Thanks</button>
+        <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+    </div>
+</ng-template>
