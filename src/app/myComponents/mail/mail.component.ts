@@ -50,8 +50,10 @@ export class MailComponent implements OnInit {
   openDialog(){
     const dialogRef = this.dialog.open(MailAddComponent)
     dialogRef.afterClosed().subscribe(result => {
+      if (result.title.length>0){
       this.allMails.push(result);
       localStorage.setItem('mails', JSON.stringify(this.allMails))
+      }
 
     })
   }

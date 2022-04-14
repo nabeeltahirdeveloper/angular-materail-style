@@ -52,9 +52,10 @@ export class CalanderComponent implements OnInit {
   openDialog(){
     const dialogRef = this.dialog.open(CalanderAddComponent)
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
+      if (result.task.length>0){
       this.allCalanders.push(result);
-      localStorage.setItem('calander', JSON.stringify(this.allCalanders))
+      localStorage.setItem('calander',JSON.stringify(this.allCalanders))
+      }
     })
   }
 

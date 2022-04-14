@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { mailData } from 'src/app/cusomTypes/mailData';
+import { ContactAddComponent } from '../contact-add/contact-add.component';
 
 @Component({
   selector: 'app-mail-add',
@@ -12,9 +13,15 @@ export class MailAddComponent implements OnInit {
     title: '',
     content: ''
   }
-  constructor(@Inject(MAT_DIALOG_DATA) public data:any) { }
+  constructor(public dialogRef: MatDialogRef<ContactAddComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any,) { }
 
   ngOnInit(): void {
+  }
+
+  noClick(): void{
+    this.dialogRef.close();
+
   }
 
 }

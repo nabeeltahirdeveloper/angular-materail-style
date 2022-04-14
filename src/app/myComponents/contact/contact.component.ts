@@ -50,8 +50,10 @@ export class ContactComponent implements OnInit {
     const dialogRef = this.dialog.open(ContactAddComponent)
     dialogRef.afterClosed().subscribe(result => {
       console.log(result);
+      if (result.name.length>0){
       this.allContacts.push(result);
       localStorage.setItem('contact', JSON.stringify(this.allContacts))
+      }
     })
   }
 
