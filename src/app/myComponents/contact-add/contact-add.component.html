@@ -1,0 +1,45 @@
+<div *ngIf="data==null; else elseBlock">
+
+
+    <h1 mat-dialog-title>Add your Contact </h1>
+    <div mat-dialog-content>
+        <p>Enter Contact Name</p>
+        <mat-form-field appearance="fill">
+            <mat-label>Contact Name</mat-label>
+            <input matInput [(ngModel)]="addContactData.name">
+        </mat-form-field>
+    </div>
+    <div mat-dialog-content>
+        <p>Enter Contact Number</p>
+        <mat-form-field appearance="fill">
+            <mat-label>Contact Number</mat-label>
+            <input matInput [(ngModel)]="addContactData.number">
+        </mat-form-field>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-button (click)="onNoClick()">No Thanks</button>
+        <button mat-button [mat-dialog-close]="addContactData" cdkFocusInitial>Ok</button>
+    </div>
+</div>
+<ng-template #elseBlock>
+
+    <h1 mat-dialog-title>Update your Contact </h1>
+    <div mat-dialog-content>
+        <p>Update Contact Name</p>
+        <mat-form-field appearance="fill">
+            <mat-label>Contact Name</mat-label>
+            <input matInput [(ngModel)]="data.name">
+        </mat-form-field>
+    </div>
+    <div mat-dialog-content>
+        <p>Update Contact Number</p>
+        <mat-form-field appearance="fill">
+            <mat-label>Contact Number</mat-label>
+            <input matInput [(ngModel)]="data.number">
+        </mat-form-field>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-button (click)="onNoClick()">No Thanks</button>
+        <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+    </div>
+</ng-template>
