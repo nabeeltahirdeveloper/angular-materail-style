@@ -27,6 +27,8 @@ import { CalanderDateComponent } from './myComponents/calander-date/calander-dat
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 
 
@@ -53,7 +55,12 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule, MatDialogModule, MatSidenavModule, MatToolbarModule, MatIconModule, MatButtonModule, MatListModule, MatCardModule, MatFormFieldModule, FormsModule, MatInputModule,MatDatepickerModule,MatNativeDateModule, ReactiveFormsModule
+    BrowserAnimationsModule, MatDialogModule, MatSidenavModule, MatToolbarModule, MatIconModule, MatButtonModule, MatListModule, MatCardModule, MatFormFieldModule, FormsModule, MatInputModule,MatDatepickerModule,MatNativeDateModule, ReactiveFormsModule, ServiceWorkerModule.register('ngsw-worker.js', {
+  enabled: environment.production,
+  // Register the ServiceWorker as soon as the application is stable
+  // or after 30 seconds (whichever comes first).
+  registrationStrategy: 'registerWhenStable:30000'
+})
   ],
   exports:[BrowserModule,
     AppRoutingModule,
