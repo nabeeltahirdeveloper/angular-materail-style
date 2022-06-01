@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CalanderComponent } from './myComponents/calander/calander.component';
-import { ContactComponent } from './myComponents/contact/contact.component';
-import { MailComponent } from './myComponents/mail/mail.component';
+import { CalanderComponent } from './myComponents/calander/calender-main/calander.component';
+import { ContactComponent } from './myComponents/contact/contact-main/contact.component';
+import { MailComponent } from './myComponents/mail/mail-main/mail.component';
 
 const routes: Routes = [
   { path: "", component: MailComponent },

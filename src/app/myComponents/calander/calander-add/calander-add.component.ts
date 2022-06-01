@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { calanderData } from 'src/app/cusomTypes/calanderData';
-import { ContactAddComponent } from '../contact-add/contact-add.component';
+import { ContactAddComponent } from '../../contact/contact-add/contact-add.component';
 import {MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS} from '@angular/material-moment-adapter';
 import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
 import { MY_FORMATS } from 'src/app/cusomTypes/dateFormat';
