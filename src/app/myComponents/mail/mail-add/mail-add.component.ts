@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { mailData } from 'src/app/cusomTypes/mailData';
-import { ContactAddComponent } from '../contact-add/contact-add.component';
+import { ContactAddComponent } from '../../contact/contact-add/contact-add.component';
 
 @Component({
   selector: 'app-mail-add',
