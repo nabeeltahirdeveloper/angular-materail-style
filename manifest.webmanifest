@@ -1,4 +1,9 @@
 {
-    "name": "Display info about a country",
-    "short_name": "CountryInfo"
+    "name": "angular material style",
+    "short_name": "material app",
+    "theme_color": "#2196f3",
+    "background_color": "#003056",
+    "display": "browser",
+    "scope": "/",
+    "start_url": "/"
   }
